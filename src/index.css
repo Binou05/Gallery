@@ -1,0 +1,853 @@
+/*────────────────────────────────────────────────
+  0. Polices Google
+────────────────────────────────────────────────*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/*────────────────────────────────────────────────
+  1. Variables globales
+────────────────────────────────────────────────*/
+:root {
+  --color-bg:        #E6E6FA;            /* lavande pastel */
+  --color-primary:   #2c3e50;            /* bleu foncé */
+  --color-accent:    #6c5ce7;            /* violet accent */
+  --color-text:      #333;               /* texte principal */
+  --space-sm:        0.5rem;
+  --space-md:        1rem;
+  --space-lg:        2rem;
+  --radius:          8px;
+  --transition:      0.3s ease-in-out;
+  --font-body:       'Montserrat', sans-serif;
+  --font-heading:    'Playfair Display', serif;
+}
+
+/*────────────────────────────────────────────────
+  2. Reset & global
+────────────────────────────────────────────────*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  padding-top: 140px;    /* espace sous la navbar */
+  overflow-y: auto;
+}
+
+/*────────────────────────────────────────────────
+  3. Liens & boutons
+────────────────────────────────────────────────*/
+a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-primary);
+}
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6em 1.2em;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--color-accent);
+}
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/*────────────────────────────────────────────────
+  4. Typographie
+────────────────────────────────────────────────*/
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: var(--color-primary);
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+/*────────────────────────────────────────────────
+  5. Navbar fixe full‑width
+────────────────────────────────────────────────*/
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/logolavande.png');
+  background-repeat: no-repeat;
+  background-position: 50% 40%; 
+  background-size: 100% auto;       
+  z-index: 1000;
+  margin: 0 !important;
+  padding: 0 var(--space-lg);
+}
+.navbar__links {
+  display: flex;
+  gap: var(--space-lg);
+  list-style: none;
+}
+.navbar__links li {
+  display: flex;
+  align-items: center;
+}
+.navbar__links li a {
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+}
+.navbar__links li a:hover {
+  background: rgba(255,255,255,0.2);
+  color: var(--color-accent);
+}
+
+
+.navbar__dropdown {
+  position: relative;
+}
+.navbar__dropdown-toggle {
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+  display: inline-flex;
+  align-items: center;
+   gap: 0.25rem; 
+}
+.navbar__dropdown-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  color: var(--color-accent);
+}
+.navbar__chevron {
+  margin-left: 0.25em;
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+/* dropdown */
+.navbar__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: var(--space-sm) 0;
+  display: none;
+  min-width: 200px;
+  z-index: 1001;
+}
+.navbar__dropdown-menu.open {
+  display: block;
+}
+.navbar__dropdown-menu li + li {
+  margin-top: var(--space-sm);
+}
+.navbar__dropdown-menu li a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+.navbar__dropdown-menu li a:hover {
+ background: var(--color-accent);
+  color: #fff;
+}
+
+
+
+
+
+/*────────────────────────────────────────────────
+  6. Accueil (Home)
+────────────────────────────────────────────────*/
+.home-page {
+  position: relative;
+  height: 69vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1;
+  background: url('/assets/Peinture5.jpg') center/cover no-repeat;
+}
+.home-page__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+}
+.home-page__content {
+ position: absolute;
+  top: var(--space-md);      /* à ajuster : distance entre le haut de l’image et ton titre */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.home-page__content h1 {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  color: rgba(255,255,255,0.95);
+}
+.home-page__subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-lg);
+  white-space: nowrap;
+   color: #fff;
+   font-size: 1.125rem;
+  font-weight: 600;
+}
+.home-page__buttons .btn {
+  margin-right: var(--space-md);
+}
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn--outline:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/*────────────────────────────────────────────────
+  7. À propos (About)
+────────────────────────────────────────────────*/
+
+
+/* Conteneur principal de la section */
+.about-page {
+  padding: var(--space-lg)   /* top */ 
+           var(--space-lg)   /* right */
+           var(--space-sm)   /* bottom */  /* ← on réduit ici */
+           var(--space-lg);  /* left */
+}
+
+
+/* 1) Introduction : portrait à gauche, texte à droite */
+.about-page__intro {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  flex-wrap: wrap; /* passe en colonne si trop étroit */
+  margin-bottom: var(--space-lg);
+}
+.about-page__portrait {
+  flex-shrink: 0;
+  width: 280px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.about-page__text {
+  flex: 1;
+  line-height: 2;
+}
+
+/* 2) Galerie de médias : 3 éléments côte à côte */
+.about-page__gallery {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap; /* passe en plusieurs lignes si besoin */
+  margin-top: var(--space-lg);
+  align-items: stretch;
+}
+.about-page__gallery > * {
+  flex: 1 1 calc(33.333% - var(--space-md));
+  max-width: calc(33.333% - var(--space-md));
+  margin: 0;
+}
+.about-page__gallery img,
+.about-page__gallery .about-page__card {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Mise en forme particulière de la carte de visite */
+.about-page__card {
+  background: #E6E6FA;
+   padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.about-page__card h3 {
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+  font-size: 1.30rem;
+}
+.about-page__card-img {
+  width: 100%;
+  border-radius: var(--radius);
+  transition: transform var(--transition);
+}
+.about-page__card-img:hover {
+  transform: scale(1.02);
+}
+/*────────────────────────────────────────────────
+  Modal « carte de visite » en overlay
+────────────────────────────────────────────────*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;            /* au‑dessus de tout */
+}
+
+.modal-overlay img,
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+/* 3) Responsive : tout s’empile sous 768px */
+@media (max-width: 768px) {
+  .about-page__intro,
+  .about-page__gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-page__gallery > * {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+/*────────────────────────────────────────────────
+  8. Galerie (Gallery)
+────────────────────────────────────────────────*/
+.gallery-page {
+  padding-top: var(--space-lg);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: var(--space-lg);
+}
+.gallery-item {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;       /* garantit un carré */
+  object-fit: cover;         /* recadre pour remplir */
+  flex-shrink: 0;
+}
+/* Zone de texte toujours à la même hauteur */
+.gallery-item p {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1.4;
+  min-height: 3.5em;          
+  flex-shrink: 0;
+}
+
+
+/*────────────────────────────────────────────────
+  9. Contact
+────────────────────────────────────────────────*/
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* Conteneur blanc semi-transparent au-dessus */
+.contact__inner {
+  background: rgba(255, 255, 255, 0.2); /* 70% opaque pour voir le fond */
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Titres et formulaire */
+.contact__inner h2 {
+  font-family: var(--font-heading);
+ color:#fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  margin-bottom: var(--space-md);
+}
+
+.contact__inner form {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.contact__inner label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: var(--color-text);
+  
+}
+.contact__inner label {
+    color: #fff;
+   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.contact__inner input,
+.contact__inner textarea {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.contact__inner button {
+  align-self: flex-start;
+ background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.contact__inner button:hover {
+  background: var(--color-accent);
+}
+
+/*────────────────────────────────────────────────
+  10. Footer
+────────────────────────────────────────────────*/
+.footer {
+  text-align: center;
+  padding: var(--space-md);
+  background: #fff;
+  color: #777;
+  margin-top: var(--space-lg);
+  border-top: 1px solid #eee;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  button {
+    width: 100%;
+    text-align: center;
+  }
+  #contact form {
+    gap: var(--space-sm);
+  }
+}
+/* Tableau des tarifs */
+.tarifs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-md);
+  font-family: var(--font-body);
+}
+
+.tarifs-table th,
+.tarifs-table td {
+  border: 1px solid #ccc;
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+}
+.tarifs-table thead th {
+  background: #f9f9f9;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.tarifs-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+.tarifs-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+/* Page Tarifs */
+.tarifs-page {
+  padding: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Le petit paragraphe en bas du tableau */
+.tarifs__notes {
+  font-size: 0.9rem;             /* plus petit que le texte normal */
+  color: #6c5ce7;                   
+  line-height: 1.4;
+  margin-top: var(--space-md);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*────────────────────────────────────────────────
+  11. Responsive global
+────────────────────────────────────────────────*/
+
+
+
+
+/* Très petits écrans (≤480px) */
+@media (max-width: 480px) {
+  
+  #contact form {
+    gap: var(--space-sm);
+  }
+}
+/*────────────────────────────────────────────────
+  Responsive home-page & navbar
+────────────────────────────────────────────────*/
+
+/* Grand tablettes / petits desktop (≤1024px) */
+@media (max-width: 1024px) {
+  .navbar__links {
+    gap: var(--space-md);
+  }
+  .home-page {
+    height: 60vh;
+    padding-top: 10vh;
+  }
+  .home-page__content h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .home-page__subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablettes / mobiles larges (≤768px) */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    height: auto;
+    padding: 0.5rem var(--space-md);
+    flex-direction: column;
+  }
+  .navbar__links {
+    width: 100%;
+    gap: var(--space-sm);
+  }
+  .navbar__links li a {
+    padding: var(--space-sm) 0;
+  }
+
+  /* Home */
+  .home-page {
+    height: auto;
+    padding: 4rem var(--space-md);
+    justify-content: center;
+  }
+  .home-page__content {
+    margin: 0 auto;
+    padding: 0 var(--space-sm);
+    text-align: center;
+  }
+  .home-page__content h1 {
+    font-size: 2rem;
+    white-space: normal;
+    word-break: break-word;
+    margin-bottom: var(--space-md);
+  }
+  .home-page__subtitle {
+    font-size: 1rem;
+    white-space: normal;
+    word-break: break-word;
+    margin-bottom: var(--space-md);
+  }
+  .home-page__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+  .home-page__buttons .btn {
+    width: 100%;
+    max-width: 240px;
+  }
+}
+
+/* Petits écrans (≤480px) */
+@media (max-width: 480px) {
+   .home-page {
+    height: auto;
+    padding: 15rem var(--space-md);
+    justify-content: center;
+  }
+  .home-page__content h1 {
+    font-size: 1.5rem;
+  }
+  .home-page__content .home-page__subtitle {
+    font-size: 1rem;
+  }
+  .home-page__buttons .btn {
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+  }
+  /* Si tu veux réduire encore la navbar */
+  .navbar {
+    padding: 0.25rem var(--space-sm);
+  }
+  .navbar__links {
+    gap: var(--space-sm);
+  }
+/* … ton CSS global … */
+
+@media (max-width: 480px) {
+  #contact textarea {
+    /* hauteur fixe sur mobile, plus compacte */
+    height: 150px;
+    /* garde un scroll si l’utilisateur tape plus de texte */
+    overflow-y: auto;
+  }
+}
+
+}
+/*─────────────────────────────────────────────
+   Page Tarifs – Responsive
+─────────────────────────────────────────────*/
+
+/* 1. Conteneur du tableau : scrolling horizontal sur petits écrans */
+.tarifs-page {
+  padding: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.tarifs-table-wrapper {
+  width: 100%;
+  overflow-x: auto;    /* active le scroll si ça déborde */
+
+}
+
+.tarifs-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;    /* pour forcer le scroll si écran <600px */
+}
+
+.tarifs-table th,
+.tarifs-table td {
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* 2. Paragraphe de notes */
+.tarifs__notes {
+  font-size: 0.9rem;
+  color: hsl(247, 85%, 38%);
+  line-height: 1.4;
+  margin-top: var(--space-md);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*─────────────────────────────────────────────
+   Responsive global pour Tarifs
+─────────────────────────────────────────────*/
+
+/* Tablettes larges (≤1024px) */
+@media (max-width: 1024px) {
+  .tarifs-table th,
+  .tarifs-table td {
+    padding: 0.4em 0.8em;
+    font-size: 0.95rem;
+  }
+.gallery-page h2 {
+  font-size: 1.6rem;
+}
+  .tarifs__notes {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablettes / petits écrans (≤768px) */
+@media (max-width: 768px) {
+  .tarifs-page {
+    padding: var(--space-md);
+  }
+
+  .tarifs-table-wrapper {
+    margin: 0 -1rem; /* étend un peu le wrapper pour toucher les bords */
+    padding: 0 1rem;
+  }
+
+  .tarifs-table th,
+  .tarifs-table td {
+    padding: 0.3em 0.6em;
+    font-size: 0.9rem;
+  }
+.gallery-page h2 {
+  font-size: 1.3rem;
+}
+  .tarifs__notes {
+    font-size: 0.8rem;
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* Très petits écrans (≤480px) */
+@media (max-width: 480px) {
+  .tarifs-table-wrapper {
+    margin: 0 -0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .tarifs-table th,
+  .tarifs-table td {
+    padding: 0.2em 0.4em;
+    font-size: 0.8rem;
+  }
+.gallery-page h2 {
+  font-size: 1.2rem;
+}
+  .tarifs__notes {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+/* Responsive : écran ≤ 768px */
+@media (max-width: 768px) {
+  #contact {
+    padding: var(--space-md);
+  }
+  .contact__inner {
+    padding: var(--space-md);
+    margin: 0 var(--space-sm);
+  }
+/* Ajuste la hauteur minimale du textarea */
+.contact__inner textarea {
+  min-height: 150px; /* ou la valeur que tu souhaites */
+  /* tu peux aussi fixer un height: 200px; si tu veux une hauteur exacte */
+}
+
+}
+/* conteneur scrollable */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;                  /* autorise le scroll horizontal */
+  margin: var(--space-md) 0;
+}
+
+/* Pour iOS Safari (inertie) : encapsulé dans un @supports */
+@supports (-webkit-overflow-scrolling: touch) {
+  .table-responsive {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Style de base pour ton tableau */
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-responsive th,
+.table-responsive td {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: nowrap;               /* garde chaque cellule sur une ligne */
+}
+
+/* Ta note en bas de page */
+.tarifs-note {
+  margin-top: var(--space-lg);
+  color: hsl(247, 85%, 38%);                   
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsive : sur très petits écrans, réduit la taille de la note */
+@media (max-width: 480px) {
+  .tarifs-note {
+    font-size: 0.8rem;
+  }
+}
+}
