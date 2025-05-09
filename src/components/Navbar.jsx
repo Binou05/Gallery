@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
+  
   return (
     <nav className="navbar">
       <ul className="navbar__links">
@@ -43,6 +43,7 @@ export default function Navbar() {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
+      
     </nav>
   );
 }
