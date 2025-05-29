@@ -4,8 +4,7 @@ import React, { useState } from "react";
 // assets
 import photoPortrait from "../assets/photoeric.jpg";
 import photoPeintre from "../assets/photopeintre.jpg";
-import coursImg from "../assets/Cours.jpg";
-import carteVisite from "../assets/carte-de-visite.jpg";
+import carteVisite from "../assets/carte-de-visite.png";
 
 export default function About() {
   const [showCard, setShowCard] = useState(false);
@@ -70,12 +69,7 @@ export default function About() {
           />
         </div>
 
-        {/* cours de peinture */}
-        <img
-          src={coursImg}
-          alt="Cours de peinture avec Éric Delpech"
-          className="about-page__cours"
-        />
+      
       </div>
 
       {/* Modal carte de visite */}

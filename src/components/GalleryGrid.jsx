@@ -3,12 +3,13 @@ import React, { useState, useRef } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import WatermarkedImage from "./WatermarkedImage";
 
 export default function GalleryGrid({ images }) {
   const [index, setIndex] = useState(-1);
   // on prépare un ref pour chaque item
   const itemRefs = useRef(images.map(() => React.createRef()));
-
+  const artist = "Eric Delpech";
   const handleClick = (i) => {
     // 1) on scroll vers la vignette pour la centrer
     itemRefs.current[i].current.scrollIntoView({
@@ -30,13 +31,26 @@ export default function GalleryGrid({ images }) {
             ref={itemRefs.current[i]}
             onClick={() => handleClick(i)}
           >
-            <img src={img.src} alt={img.title} />
+            <WatermarkedImage
+              src={img.src}
+              alt={img.title}
+              artistName={artist}
+            />
 
             {/* overlay qui n’apparaît qu’au hover */}
             <div className="overlay">
               <h4>{img.title}</h4>
-              {img.dimensions && <p>{img.dimensions}</p>}
-              {typeof img.price === "number" && <p>{img.price} €</p>}
+               {/* si c'est en collection privée */}
+             
+              {img.private ? (
+                <p>Collection privée</p>
+              ) : (
+                <>
+                  {img.dimensions && <p>{img.dimensions}</p>}
+                  {img.price  != null && <p>{img.price} €</p>}
+                  </>
+              )}
+             
             </div>
 
             {/* légende toujours visible */}

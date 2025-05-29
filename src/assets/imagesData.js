@@ -12,22 +12,23 @@ import peinture10 from "./Peinture10.jpg";
 import peinture11 from "./Peinture11.jpg";
 import peinture12 from "./Peinture12.jpg";
 import peinture13 from "./Peinture13.jpg";
-import peinture14 from "./Peinture14.jpg";
 import peinture15 from "./Peinture15.jpg";
 import peinture16 from "./Peinture16.jpg";
-// … ajoute ou supprime selon tes fichiers présents
+import peinture17 from "./Peinture17.jpg";
+import peinture18 from "./Peinture18.jpg";
 
 const imagesData = [
   {
     src: peinture1,
     title: "Chemin de Provence",
     category: "huile",
-    dimensions: "61 × 50 cm",
-    price: 12 * 40,
+    dimensions: "",
+    price: "",
+    private: true,
   },
   {
     src: peinture2,
-    title: "Peinture 2",
+    title: "Champs de lavande",
     category: "huile",
     dimensions: "61 × 50 cm",
     price: 12 * 40,
@@ -43,8 +44,9 @@ const imagesData = [
     src: peinture4,
     title: "La place",
     category: "huile",
-    dimensions: "46 × 38 cm",
-    price: 8 * 40,
+    dimensions: "",
+    price: "",
+    private: true,
   },
   {
     src: peinture5,
@@ -64,8 +66,9 @@ const imagesData = [
     src: peinture7,
     title: "Le cabanon",
     category: "huile",
-    dimensions: "46 × 38 cm",
-    price: 8 * 40,
+    dimensions: "",
+    price: "",
+    private: true,
   },
   {
     src: peinture8,
@@ -78,8 +81,9 @@ const imagesData = [
     src: peinture9,
     title: "Le vallon des lavandes",
     category: "huile",
-    dimensions: "46 × 38 cm",
-    price: 8 * 40,
+    dimensions: "",
+    price: "",
+    private: true,
   },
   {
     src: peinture10,
@@ -109,13 +113,7 @@ const imagesData = [
     dimensions: "46 × 38 cm",
     price: 8 * 40,
   },
-  {
-    src: peinture14,
-    title: "Les Mas",
-    category: "huile",
-    dimensions: "46 × 38 cm",
-    price: 8 * 40,
-  },
+
   {
     src: peinture15,
     title: "Chemin des Baux",
@@ -130,7 +128,20 @@ const imagesData = [
     dimensions: "46 × 38 cm",
     price: 8 * 40,
   },
-  // … etc.
+  {
+    src: peinture17,
+    title: "La cabane",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture18,
+    title: "Champs",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
 ];
 
 export default imagesData;

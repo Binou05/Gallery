@@ -661,7 +661,7 @@ a, .btn--primary {
     gap: var(--space-md);
   }
   .home-page {
-    height: 60vh;
+    height: 45vh;
     padding-top: 10vh;
   }
   .home-page__content h1 {
