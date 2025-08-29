@@ -12,10 +12,19 @@ import peinture10 from "./Peinture10.jpg";
 import peinture11 from "./Peinture11.jpg";
 import peinture12 from "./Peinture12.jpg";
 import peinture13 from "./Peinture13.jpg";
+import peinture14 from "./Peinture14.jpg";
 import peinture15 from "./Peinture15.jpg";
 import peinture16 from "./Peinture16.jpg";
 import peinture17 from "./Peinture17.jpg";
 import peinture18 from "./Peinture18.jpg";
+import peinture19 from "./Peinture19.jpg";
+import peinture20 from "./Peinture20.jpg";
+import peinture21 from "./Peinture21.jpg";
+import peinture22 from "./Peinture22.jpg";
+import peinture23 from "./Peinture23.jpg";
+import peinture24 from "./Peinture24.jpg";
+import peinture25 from "./Peinture25.jpg";
+import peinture26 from "./Peinture26.jpg";
 
 const imagesData = [
   {
@@ -52,8 +61,8 @@ const imagesData = [
     src: peinture5,
     title: "Lavande de côte",
     category: "huile",
-    dimensions: "46 × 38 cm",
-    price: 8 * 40,
+    dimensions: "61 × 50 cm",
+    price: 12 * 40,
   },
   {
     src: peinture6,
@@ -113,7 +122,13 @@ const imagesData = [
     dimensions: "46 × 38 cm",
     price: 8 * 40,
   },
-
+  {
+    src: peinture14,
+    title: "Montagne Les Alpilles",
+    category: "huile",
+    dimensions: "55 × 46 cm",
+    price: 10 * 40,
+  },
   {
     src: peinture15,
     title: "Chemin des Baux",
@@ -128,16 +143,59 @@ const imagesData = [
     dimensions: "46 × 38 cm",
     price: 8 * 40,
   },
+  
   {
-    src: peinture17,
-    title: "La cabane",
+    src: peinture19,
+    title: "Vue de la colline",
+    category: "huile",
+    dimensions: "55 × 46 cm",
+    price: 10 * 40,
+  },
+  {
+    src: peinture20,
+    title: "Bateaux",
     category: "encre",
     dimensions: "46 × 38 cm",
     price: 8 * 40,
   },
   {
-    src: peinture18,
+    src: peinture21,
+    title: "Colline",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture22,
+    title: "Cabanon",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture23,
     title: "Champs",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture24,
+    title: "Mer",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture25,
+    title: "Lavandin",
+    category: "encre",
+    dimensions: "46 × 38 cm",
+    price: 8 * 40,
+  },
+  {
+    src: peinture26,
+    title: "Lavandes",
     category: "encre",
     dimensions: "46 × 38 cm",
     price: 8 * 40,
