@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "bash -lc 'npm run build && mkdir -p docs && rm -rf docs/* && cp -r dist/* docs/ && ( [ -f .gitattributes ] || git checkout origin/main -- .gitattributes || true ) && git add docs .gitattributes && ( git diff --cached --quiet || git commit -m \"Deploy: dist -> docs\" ) && git push origin main'"
+   "deploy": "bash -lc 'npm run build && cp dist/index.html dist/404.html && ( [ -d docs ] || mkdir docs ) && rm -rf docs/* && cp -r dist/* docs/ && echo www.galerie-eric-delpech.fr > docs/CNAME && ( [ -f .gitattributes ] || git checkout origin/main -- .gitattributes || true ) && git add docs .gitattributes && ( git diff --cached --quiet || git commit -m \"Deploy: dist -> docs (+404,CNAME)\" ) && git push origin HEAD:main'"
+
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
