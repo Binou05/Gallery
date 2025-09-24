@@ -231,7 +231,7 @@ a, .btn--primary {
   align-items: flex-start;
   justify-content: center;
   padding-top: 1;
-  background: url('/assets/Peinture5.jpg') center/cover no-repeat;
+  background: url('./assets/Peinture5.jpg') center/cover no-repeat;
 }
 .home-page__overlay {
   position: absolute;
